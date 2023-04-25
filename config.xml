@@ -6,9 +6,6 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-
-    <preference name="AndroidInsecureFileModeEnabled" value="true" />
-
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 </widget>

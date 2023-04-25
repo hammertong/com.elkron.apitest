@@ -32,6 +32,22 @@ function onDeviceReady() {
     api.login(
 	function() {
     	    document.getElementById("login-ok").style.display = 'block';
+	    api.request(
+		'/multiapi/private/getuserprofile/', 
+		"GET",
+		null, 
+		function (data) {
+			var profile = JSON.parse(data);
+			document.getElementById('my-profile-ok').innerHTML =
+			'<ul>' 
+			+ '<li>Hello ' + profile.name + '</li>'
+			+ '<li>' + profile.email + '</li>'
+			+ '<ul>'; 
+		},
+		function (data) {
+			document.getElementById('my-profile-ko').innerHTML = data;
+		}
+	    );
 	},
 	function() {
     	    document.getElementById("login-ko").style.display = 'block';
